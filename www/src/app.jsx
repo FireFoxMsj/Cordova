@@ -107,7 +107,7 @@ $$(document).on('pageBeforeInit', e => {
     } else {
         $$(page.navbarInnerContainer).html(`
             <div class="left">
-                <a href="#" class="back link"><i class="icon icon-back"></i><span>返回</span></a>
+                <a href="#" class="back link"><i class="icon icon-back"></i></a>
             </div>
             <div class="center sliding">${pageTitle}</div>
             <div class="right"></div>
