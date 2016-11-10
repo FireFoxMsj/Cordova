@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Qmang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="libs/framework7/framework7.ios.min.css">
+    <link rel="stylesheet" href="libs/framework7/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="libs/iconfont/iconfont.css">
+    <link rel="stylesheet" href="dist/css/app.css">
+    <script src="cordova.js"></script>
+    <script src="libs/util/storage_util.js"></script>
+    <script src="libs/util/http_util.js"></script>
+    <script src="libs/underscore.js"></script>
+    <script src="libs/moment.js"></script>
+</head>
+
+<body id="body" className="page">
+    <div class="statusbar-overlay"></div>
+    <div class="login-screen">
+        <div id="login" class="view">
+            <div data-page="login" class="page">
+                <div class="page-content" id="login_content"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="views tabs" style="overflow: hidden;">
+        <div id="work" class="view tab active">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"></div>
+                    <div class="center sliding">工作</div>
+                    <div class="right"></div>
+                </div>
+            </div>
+            <div class="pages navbar-through">
+                <div data-page="work" class="page toolbar-through"></div>
+            </div>
+        </div>
+        <div id="square" class="view tab active">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"></div>
+                    <div class="center sliding">广场</div>
+                    <div class="right"></div>
+                </div>
+            </div>
+            <div class="pages navbar-through">
+                <div data-page="square" class="page toolbar-through"></div>
+            </div>
+        </div>
+        <div id="message" class="view tab active">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"></div>
+                    <div class="center sliding">消息</div>
+                    <div class="right"></div>
+                </div>
+            </div>
+            <div class="pages navbar-through">
+                <div data-page="message" class="page toolbar-through"></div>
+            </div>
+        </div>
+        <div id="ucenter" class="view tab">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"></div>
+                    <div class="center sliding">我的</div>
+                    <div class="right"></div>
+                </div>
+            </div>
+            <div class="pages">
+                <div data-page="ucenter" class="page toolbar-through"></div>
+            </div>
+        </div>
+        <div id="footer_bar" class="toolbar tabbar footer-bar theme-black">
+            <div class="toolbar-inner">
+                <a class="tab-link active" href="#work">
+                    <i class="icon iconfont icon-hongben"></i>
+                    <span class="tab-label">工作</span>
+                </a>
+                <a class="tab-link" href="#square">
+                    <i class="icon iconfont icon-xiaoxi"></i>
+                    <span class="tab-label">广场</span>
+                </a>
+                <a class="tab-link" href="#message">
+                    <i class="icon iconfont icon-sms"></i>
+                    <span class="tab-label">消息</span>
+                </a>
+                <a class="tab-link" href="#ucenter">
+                    <i class="icon iconfont icon-wo"></i>
+                    <span class="tab-label">我的</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="libs/framework7/framework7.js"></script>
+    <script src="dist/js/bundle.js"></script>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                  var clientWidth = docEl.clientWidth;
+                  if (!clientWidth) return;
+                  if (clientWidth >= 414) {
+                    docEl.style.fontSize = '36px';
+                  }else if (clientWidth < 414 && clientWidth >= 375) {
+                    docEl.style.fontSize = 36 * (clientWidth / 414) + 'px';
+                  }else if (clientWidth < 375 && clientWidth >= 320) {
+                    docEl.style.fontSize = 36 * (clientWidth / 375) + 'px';
+                  }else {
+                    docEl.style.fontSize = 36 * (clientWidth / 320) + 'px';
+                  }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            console.info(device.platform);
+        }
+    </script>
+</body>
+
+</html>
