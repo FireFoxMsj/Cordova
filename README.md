@@ -9,7 +9,6 @@
 - 重新整理了目录结构，使用React+ES6进行组件模块化开发
 - 使用Framework7的穿透布局,单一HTML入口，其余页面通过React生成 
 - Framework7相关js、css文件直接通过页面引入，不参与打包可以大大减少不必要的打包时间
-- 目录下面有个app.apk文件，可以安装到安卓手机里体验一下
 
 # 开发说明
  
@@ -49,5 +48,5 @@
 
 - ``npm run test`` 真机同步测试，只支持Android，需要连上Android手机
 - ``npm run build `` 文件编译，压缩，合并，执行此命令后才可以进行下面两个任务
-- ``npm run android`` Android打包
-- ``npm run ios`` IOS打包
+- ``cordova platform add ios`` 添加ios平台
+- ``cordova build ios`` 生成ios端运行文件
